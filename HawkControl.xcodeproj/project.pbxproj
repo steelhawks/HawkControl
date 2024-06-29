@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		BB1B50272C2F39E1000E889D /* HawkControlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B50262C2F39E1000E889D /* HawkControlApp.swift */; };
-		BB1B50292C2F39E1000E889D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B50282C2F39E1000E889D /* ContentView.swift */; };
+		BB1B50292C2F39E1000E889D /* ConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B50282C2F39E1000E889D /* ConnectView.swift */; };
 		BB1B502B2C2F39E2000E889D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB1B502A2C2F39E2000E889D /* Assets.xcassets */; };
 		BB1B502E2C2F39E2000E889D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB1B502D2C2F39E2000E889D /* Preview Assets.xcassets */; };
 		BB1B50382C2F39E2000E889D /* HawkControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B50372C2F39E2000E889D /* HawkControlTests.swift */; };
 		BB1B50422C2F39E2000E889D /* HawkControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B50412C2F39E2000E889D /* HawkControlUITests.swift */; };
 		BB1B50442C2F39E2000E889D /* HawkControlUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B50432C2F39E2000E889D /* HawkControlUITestsLaunchTests.swift */; };
+		BBC10E8B2C2F5F8C0099A208 /* RobotPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC10E8A2C2F5F8C0099A208 /* RobotPanelView.swift */; };
+		BBC10E8D2C30B4B90099A208 /* GlobalStateVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC10E8C2C30B4B90099A208 /* GlobalStateVars.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		BB1B50232C2F39E1000E889D /* HawkControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HawkControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1B50262C2F39E1000E889D /* HawkControlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HawkControlApp.swift; sourceTree = "<group>"; };
-		BB1B50282C2F39E1000E889D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BB1B50282C2F39E1000E889D /* ConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectView.swift; sourceTree = "<group>"; };
 		BB1B502A2C2F39E2000E889D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB1B502D2C2F39E2000E889D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BB1B50332C2F39E2000E889D /* HawkControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HawkControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,8 @@
 		BB1B503D2C2F39E2000E889D /* HawkControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HawkControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1B50412C2F39E2000E889D /* HawkControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HawkControlUITests.swift; sourceTree = "<group>"; };
 		BB1B50432C2F39E2000E889D /* HawkControlUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HawkControlUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BBC10E8A2C2F5F8C0099A208 /* RobotPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotPanelView.swift; sourceTree = "<group>"; };
+		BBC10E8C2C30B4B90099A208 /* GlobalStateVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStateVars.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +99,11 @@
 			isa = PBXGroup;
 			children = (
 				BB1B50262C2F39E1000E889D /* HawkControlApp.swift */,
-				BB1B50282C2F39E1000E889D /* ContentView.swift */,
+				BB1B50282C2F39E1000E889D /* ConnectView.swift */,
 				BB1B502A2C2F39E2000E889D /* Assets.xcassets */,
 				BB1B502C2C2F39E2000E889D /* Preview Content */,
+				BBC10E8A2C2F5F8C0099A208 /* RobotPanelView.swift */,
+				BBC10E8C2C30B4B90099A208 /* GlobalStateVars.swift */,
 			);
 			path = HawkControl;
 			sourceTree = "<group>";
@@ -257,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB1B50292C2F39E1000E889D /* ContentView.swift in Sources */,
+				BBC10E8B2C2F5F8C0099A208 /* RobotPanelView.swift in Sources */,
+				BB1B50292C2F39E1000E889D /* ConnectView.swift in Sources */,
+				BBC10E8D2C30B4B90099A208 /* GlobalStateVars.swift in Sources */,
 				BB1B50272C2F39E1000E889D /* HawkControlApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,7 +430,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HawkControl/Preview Content\"";
-				DEVELOPMENT_TEAM = QSXRGJG5V9;
+				DEVELOPMENT_TEAM = C2J6UW66LC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -430,16 +438,19 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.steelhawks.HawkControl;
+				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.HawkControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -451,7 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HawkControl/Preview Content\"";
-				DEVELOPMENT_TEAM = QSXRGJG5V9;
+				DEVELOPMENT_TEAM = C2J6UW66LC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -459,16 +470,19 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.steelhawks.HawkControl;
+				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.HawkControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
