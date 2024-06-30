@@ -2,10 +2,11 @@ import SwiftUI
 
 struct RobotPanelView: View {
     @EnvironmentObject var robotConnection: GlobalStateVars
-    
+    @EnvironmentObject var webSocketManager: WebSocketManager // Inject WebSocketManager here
+
     var body: some View {
         VStack {
-            if (robotConnection.connectedToRobot) {
+            if robotConnection.connectedToRobot {
                 Button(action: moveForward) {
                     Label("Forward", systemImage: "arrow.up")
                 }.padding()
@@ -27,23 +28,29 @@ struct RobotPanelView: View {
 
     func moveForward() {
         print("Move Forward")
+        webSocketManager.sendData(key: "dir", value: "1.0")
     }
 
     func moveBackward() {
         print("Move Backward")
+        webSocketManager.sendData(key: "dir", value: "-1.0")
     }
 
     func moveLeft() {
         print("Move Left")
+        webSocketManager.sendData(key: "rot", value: "1.0")
     }
 
     func moveRight() {
         print("Move Right")
+        webSocketManager.sendData(key: "rot", value: "-1.0")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct RobotPanelView_Previews: PreviewProvider {
     static var previews: some View {
         RobotPanelView()
+//        let webSocketManager = WebSocketManager() // Initialize WebSocketManager
+//        return RobotPanelView(webSocketManager: webSocketManager).environmentObject(GlobalStateVars())
     }
 }

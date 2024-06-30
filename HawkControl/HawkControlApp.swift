@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct HawkControlApp: App {
     @StateObject private var robotConnection = GlobalStateVars()
+    @StateObject private var webSocketManager = WebSocketManager()
     
     var body: some Scene {
         WindowGroup {
@@ -20,9 +21,10 @@ struct HawkControlApp: App {
                         Text("Connect")
                     }
                     .tag(1)
-                    
+
                 RobotPanelView()
                     .environmentObject(robotConnection)
+                    .environmentObject(webSocketManager)
                     .tabItem {
                         Text("Control")
                     }
