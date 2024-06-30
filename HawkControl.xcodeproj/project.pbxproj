@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F69AE2DA294AD2DD25128A8 /* Pods_HawkControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A316DCC2AF59178533D6B536 /* Pods_HawkControl.framework */; };
 		BB1B50272C2F39E1000E889D /* HawkControlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B50262C2F39E1000E889D /* HawkControlApp.swift */; };
 		BB1B50292C2F39E1000E889D /* ConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B50282C2F39E1000E889D /* ConnectView.swift */; };
 		BB1B502B2C2F39E2000E889D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB1B502A2C2F39E2000E889D /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A316DCC2AF59178533D6B536 /* Pods_HawkControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HawkControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1B50232C2F39E1000E889D /* HawkControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HawkControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1B50262C2F39E1000E889D /* HawkControlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HawkControlApp.swift; sourceTree = "<group>"; };
 		BB1B50282C2F39E1000E889D /* ConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectView.swift; sourceTree = "<group>"; };
@@ -48,6 +50,8 @@
 		BB1B50432C2F39E2000E889D /* HawkControlUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HawkControlUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BBC10E8A2C2F5F8C0099A208 /* RobotPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotPanelView.swift; sourceTree = "<group>"; };
 		BBC10E8C2C30B4B90099A208 /* GlobalStateVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStateVars.swift; sourceTree = "<group>"; };
+		C4BDD63F753FAA94E4A1B9CC /* Pods-HawkControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HawkControl.debug.xcconfig"; path = "Target Support Files/Pods-HawkControl/Pods-HawkControl.debug.xcconfig"; sourceTree = "<group>"; };
+		E86BD38B9CD676042BE03101 /* Pods-HawkControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HawkControl.release.xcconfig"; path = "Target Support Files/Pods-HawkControl/Pods-HawkControl.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F69AE2DA294AD2DD25128A8 /* Pods_HawkControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +80,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2922527365DDC7BB4FC7DDB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A316DCC2AF59178533D6B536 /* Pods_HawkControl.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		76AC23BB722C366A0D6E425D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4BDD63F753FAA94E4A1B9CC /* Pods-HawkControl.debug.xcconfig */,
+				E86BD38B9CD676042BE03101 /* Pods-HawkControl.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BB1B501A2C2F39E1000E889D = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +104,8 @@
 				BB1B50362C2F39E2000E889D /* HawkControlTests */,
 				BB1B50402C2F39E2000E889D /* HawkControlUITests */,
 				BB1B50242C2F39E1000E889D /* Products */,
+				76AC23BB722C366A0D6E425D /* Pods */,
+				2922527365DDC7BB4FC7DDB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB1B50472C2F39E2000E889D /* Build configuration list for PBXNativeTarget "HawkControl" */;
 			buildPhases = (
+				5341202F2B6E60D906332235 /* [CP] Check Pods Manifest.lock */,
 				BB1B501F2C2F39E1000E889D /* Sources */,
 				BB1B50202C2F39E1000E889D /* Frameworks */,
 				BB1B50212C2F39E1000E889D /* Resources */,
+				6BAAF0CE1F1E5747F56F9099 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,6 +284,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5341202F2B6E60D906332235 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HawkControl-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BAAF0CE1F1E5747F56F9099 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HawkControl/Pods-HawkControl-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HawkControl/Pods-HawkControl-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HawkControl/Pods-HawkControl-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BB1B501F2C2F39E1000E889D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -355,7 +423,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -412,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -424,6 +492,7 @@
 		};
 		BB1B50482C2F39E2000E889D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4BDD63F753FAA94E4A1B9CC /* Pods-HawkControl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -433,6 +502,7 @@
 				DEVELOPMENT_TEAM = C2J6UW66LC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -456,6 +526,7 @@
 		};
 		BB1B50492C2F39E2000E889D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E86BD38B9CD676042BE03101 /* Pods-HawkControl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -465,6 +536,7 @@
 				DEVELOPMENT_TEAM = C2J6UW66LC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

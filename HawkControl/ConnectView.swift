@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Starscream
 
 struct ConnectView: View {
     @EnvironmentObject var robotConnection: GlobalStateVars
