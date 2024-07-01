@@ -9,35 +9,30 @@ import SwiftUI
 
 @main
 struct HawkControlApp: App {
-    @StateObject private var robotConnection = GlobalStateVars()
-    @StateObject private var webSocketManager = WebSocketManager()
-    
     var body: some Scene {
         WindowGroup {
             TabView {
                 ConnectView()
-                    .environmentObject(robotConnection)
                     .tabItem {
                         Text("Connect")
                     }
                     .tag(1)
-
                 RobotPanelView()
-                    .environmentObject(robotConnection)
-                    .environmentObject(webSocketManager)
                     .tabItem {
                         Text("Control")
                     }
                     .tag(2)
-
-                Text("Test")
-                    .environmentObject(robotConnection)
+                LoggingView()
+                    .tabItem {
+                        Text("Logs")
+                    }
+                    .tag(3)
+                SettingsView()
                     .tabItem {
                         Text("Settings")
                     }
-                    .tag(3)
+                    .tag(4)
                 }
-                .tag(3)
             }
         }
     }

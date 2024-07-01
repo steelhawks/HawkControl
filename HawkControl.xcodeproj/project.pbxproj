@@ -15,6 +15,11 @@
 		BB1B50382C2F39E2000E889D /* HawkControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B50372C2F39E2000E889D /* HawkControlTests.swift */; };
 		BB1B50422C2F39E2000E889D /* HawkControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B50412C2F39E2000E889D /* HawkControlUITests.swift */; };
 		BB1B50442C2F39E2000E889D /* HawkControlUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B50432C2F39E2000E889D /* HawkControlUITestsLaunchTests.swift */; };
+		BB1DE5592C3107DE00CC9509 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1DE5582C3107D300CC9509 /* WebSocketManager.swift */; };
+		BB1DE55B2C31086F00CC9509 /* WebSocketDelegateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1DE55A2C31086400CC9509 /* WebSocketDelegateImpl.swift */; };
+		BB1DE55D2C310BAD00CC9509 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1DE55C2C310BAD00CC9509 /* SettingsView.swift */; };
+		BB1DE55F2C32467900CC9509 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1DE55E2C32467700CC9509 /* Logger.swift */; };
+		BB1DE5612C32482000CC9509 /* LoggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1DE5602C32482000CC9509 /* LoggingView.swift */; };
 		BBC10E8B2C2F5F8C0099A208 /* RobotPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC10E8A2C2F5F8C0099A208 /* RobotPanelView.swift */; };
 		BBC10E8D2C30B4B90099A208 /* GlobalStateVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC10E8C2C30B4B90099A208 /* GlobalStateVars.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +53,11 @@
 		BB1B503D2C2F39E2000E889D /* HawkControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HawkControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1B50412C2F39E2000E889D /* HawkControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HawkControlUITests.swift; sourceTree = "<group>"; };
 		BB1B50432C2F39E2000E889D /* HawkControlUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HawkControlUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BB1DE5582C3107D300CC9509 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		BB1DE55A2C31086400CC9509 /* WebSocketDelegateImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketDelegateImpl.swift; sourceTree = "<group>"; };
+		BB1DE55C2C310BAD00CC9509 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BB1DE55E2C32467700CC9509 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		BB1DE5602C32482000CC9509 /* LoggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingView.swift; sourceTree = "<group>"; };
 		BBC10E8A2C2F5F8C0099A208 /* RobotPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotPanelView.swift; sourceTree = "<group>"; };
 		BBC10E8C2C30B4B90099A208 /* GlobalStateVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStateVars.swift; sourceTree = "<group>"; };
 		C4BDD63F753FAA94E4A1B9CC /* Pods-HawkControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HawkControl.debug.xcconfig"; path = "Target Support Files/Pods-HawkControl/Pods-HawkControl.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,12 +132,17 @@
 		BB1B50252C2F39E1000E889D /* HawkControl */ = {
 			isa = PBXGroup;
 			children = (
+				BB1DE55E2C32467700CC9509 /* Logger.swift */,
+				BB1DE55A2C31086400CC9509 /* WebSocketDelegateImpl.swift */,
+				BB1DE5582C3107D300CC9509 /* WebSocketManager.swift */,
 				BB1B50262C2F39E1000E889D /* HawkControlApp.swift */,
 				BB1B50282C2F39E1000E889D /* ConnectView.swift */,
 				BB1B502A2C2F39E2000E889D /* Assets.xcassets */,
 				BB1B502C2C2F39E2000E889D /* Preview Content */,
 				BBC10E8A2C2F5F8C0099A208 /* RobotPanelView.swift */,
 				BBC10E8C2C30B4B90099A208 /* GlobalStateVars.swift */,
+				BB1DE55C2C310BAD00CC9509 /* SettingsView.swift */,
+				BB1DE5602C32482000CC9509 /* LoggingView.swift */,
 			);
 			path = HawkControl;
 			sourceTree = "<group>";
@@ -331,10 +346,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB1DE55D2C310BAD00CC9509 /* SettingsView.swift in Sources */,
 				BBC10E8B2C2F5F8C0099A208 /* RobotPanelView.swift in Sources */,
 				BB1B50292C2F39E1000E889D /* ConnectView.swift in Sources */,
+				BB1DE5592C3107DE00CC9509 /* WebSocketManager.swift in Sources */,
 				BBC10E8D2C30B4B90099A208 /* GlobalStateVars.swift in Sources */,
+				BB1DE5612C32482000CC9509 /* LoggingView.swift in Sources */,
+				BB1DE55B2C31086F00CC9509 /* WebSocketDelegateImpl.swift in Sources */,
 				BB1B50272C2F39E1000E889D /* HawkControlApp.swift in Sources */,
+				BB1DE55F2C32467900CC9509 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,12 +522,12 @@
 				DEVELOPMENT_TEAM = C2J6UW66LC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HawkControl;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,7 +540,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -536,12 +556,12 @@
 				DEVELOPMENT_TEAM = C2J6UW66LC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HawkControl;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -554,7 +574,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
