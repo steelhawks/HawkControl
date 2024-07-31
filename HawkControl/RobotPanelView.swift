@@ -12,54 +12,165 @@ struct RobotPanelView: View {
     @ObservedObject var stateVars: GlobalStateVars = GlobalStateVars.shared
     let webSocketManager = WebSocketManager.shared
 
+    @State private var flash = false
+    @State private var timer: Timer?
+    
     var body: some View {
         VStack {
             if stateVars.connectedToRobot {
+                // Top section for live camera feeds
                 HStack {
-                    CustomButton(
-                        title: "Podium Shot",
-                        onPress: {
-                            sendMoveCommand(key: "podiumShot", value: "true")
-                        },
-                        onRelease: {
-                            sendMoveCommand(key: "podiumShot", value: "false")
-                        }
-                    )
-                    .frame(width: 200, height: 200)
-                    .background(.white)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    
-                    CustomButton(
-                        title: "Subwoofer Shot",
-                        onPress: {
-                            sendMoveCommand(key: "subwooferShot", value: "true")
-                        },
-                        onRelease: {
-                            sendMoveCommand(key: "subwooferShot", value: "false")
-                        }
-                    )
-                    .frame(width: 200, height: 200)
-                    .background(Color.white)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+                    VStack {
+                        Text("Live Camera Feed 1")
+                        Rectangle()
+                            .fill(Color.gray)
+                            .frame(height: 400)
+                    }
+                    VStack {
+                        Text("Live Camera Feed 2")
+                        Rectangle()
+                            .fill(Color.gray)
+                            .frame(height: 400)
+                    }
                 }
-                Button(action: {
-                    sendMoveCommand(key: "subwooferShot", value: "false")
-                    sendMoveCommand(key: "ferryShot", value: "false")
-                    sendMoveCommand(key: "podiumShot", value: "false")
-                }) {
-                    Label("Emergency Stop", systemImage: "exclamationmark.octagon.fill")
-                }.padding()
+                .padding()
                 
-                Text(verbatim: "Note Status:  \(GlobalStateVars.shared.noteStatus)")
-                Text(verbatim: "Robot Status:  \(GlobalStateVars.shared.robotState)")
-                Text(verbatim: "Is Ready to Shoot:  \(GlobalStateVars.shared.isReadyToShoot)")
+                Spacer()
+                
+                // Bottom section for statuses and controls
+                HStack {
+                    // Left section for robot statuses
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text(verbatim: "Note Status:  \(GlobalStateVars.shared.noteStatus)")
+                            Rectangle()
+                                .fill(GlobalStateVars.shared.noteStatus == "INTAKEN" ? (flash ? Color.green : Color.clear) : Color.red)
+                                .frame(width: 20, height: 20)
+                                .animation(Animation.easeInOut(duration: 0.25).repeatForever(autoreverses: true), value: flash)
+                                .onAppear {
+                                    if GlobalStateVars.shared.noteStatus == "INTAKEN" {
+                                        flash = true
+                                    }
+                                }
+                                .onChange(of: GlobalStateVars.shared.noteStatus) { newValue in
+                                    if newValue == "INTAKEN" {
+                                        flash = true
+                                    } else {
+                                        flash = false
+                                    }
+                                }
+                        }
+                        
+                        Text(verbatim: "Robot Status:  \(GlobalStateVars.shared.robotState)")
+                        HStack {
+                            Text("Is Ready to Shoot: ")
+                            Rectangle()
+                                .fill(GlobalStateVars.shared.isReadyToShoot == "Yes" ? Color.green : Color.red)
+                                .frame(width: 20, height: 20)
+                        }
+                    }
+                    .padding()
+                    
+                    Spacer()
+                    
+                    // Right section for button presses
+                    VStack {
+                        HStack {
+                            CustomButton(
+                                title: "Podium Shot",
+                                onPress: {
+                                    sendMoveCommand(key: "podiumShot", value: "true")
+                                },
+                                onRelease: {
+                                    sendMoveCommand(key: "podiumShot", value: "false")
+                                }
+                            )
+                            .frame(width: 200, height: 200)
+                            .background(Color.white)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            
+                            CustomButton(
+                                title: "Subwoofer Shot",
+                                onPress: {
+                                    sendMoveCommand(key: "subwooferShot", value: "true")
+                                },
+                                onRelease: {
+                                    sendMoveCommand(key: "subwooferShot", value: "false")
+                                }
+                            )
+                            .frame(width: 200, height: 200)
+                            .background(Color.white)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            
+                            CustomButton(
+                                title: "Note to Amp",
+                                onPress: {
+                                    sendMoveCommand(key: "noteToAmp", value: "true")
+                                },
+                                onRelease: {
+                                    sendMoveCommand(key: "noteToAmp", value: "false")
+                                }
+                            )
+                            .frame(width: 200, height: 200)
+                            .background(Color.white)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            
+                            VStack {
+                                CustomButton(
+                                    title: "Manual Intake",
+                                    onPress: {
+                                        sendMoveCommand(key: "manualIntake", value: "true")
+                                    },
+                                    onRelease: {
+                                        sendMoveCommand(key: "manualIntake", value: "false")
+                                    }
+                                )
+                                .frame(width: 200, height: 100)
+                                .background(Color.white)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                
+                                CustomButton(
+                                    title: "Reverse Intake",
+                                    onPress: {
+                                        sendMoveCommand(key: "reverseIntake", value: "true")
+                                    },
+                                    onRelease: {
+                                        sendMoveCommand(key: "reverseIntake", value: "false")
+                                    }
+                                )
+                                .frame(width: 200, height: 100)
+                                .background(Color.white)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                            }
+                        }
+                        
+                        // Emergency Stop Button
+                        Button(action: {
+                            sendMoveCommand(key: "subwooferShot", value: "false")
+                            sendMoveCommand(key: "ferryShot", value: "false")
+                            sendMoveCommand(key: "podiumShot", value: "false")
+                            sendMoveCommand(key: "noteToAmp", value: "false")
+                            sendMoveCommand(key: "manualIntake", value: "false")
+                            sendMoveCommand(key: "reverseToIntake", value: "false")
+                            
+                        }) {
+                            Label("Emergency Stop", systemImage: "exclamationmark.octagon.fill")
+                        }
+                        .padding()
+                    }
+                }
+                .padding()
             } else {
                 Label("Please connect to your robot", systemImage: "exclamationmark.triangle.fill")
                     .bold()
             }
         }
+        .padding()
     }
     
     func sendMoveCommand(key: String, value: String) {
