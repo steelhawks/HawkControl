@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct RobotPanelView: View {
     @ObservedObject var stateVars: GlobalStateVars = GlobalStateVars.shared
@@ -14,33 +15,46 @@ struct RobotPanelView: View {
     var body: some View {
         VStack {
             if stateVars.connectedToRobot {
+                HStack {
+                    CustomButton(
+                        title: "Podium Shot",
+                        onPress: {
+                            sendMoveCommand(key: "podiumShot", value: "true")
+                        },
+                        onRelease: {
+                            sendMoveCommand(key: "podiumShot", value: "false")
+                        }
+                    )
+                    .frame(width: 200, height: 200)
+                    .background(.white)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    
+                    CustomButton(
+                        title: "Subwoofer Shot",
+                        onPress: {
+                            sendMoveCommand(key: "subwooferShot", value: "true")
+                        },
+                        onRelease: {
+                            sendMoveCommand(key: "subwooferShot", value: "false")
+                        }
+                    )
+                    .frame(width: 200, height: 200)
+                    .background(Color.white)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }
                 Button(action: {
-                    sendMoveCommand(key: "dir", value: "1.0")
+                    sendMoveCommand(key: "subwooferShot", value: "false")
+                    sendMoveCommand(key: "ferryShot", value: "false")
+                    sendMoveCommand(key: "podiumShot", value: "false")
                 }) {
-                    Label("Forward", systemImage: "arrow.up")
-                }.padding()
-                Button(action: {
-                    sendMoveCommand(key: "dir", value: "-1.0")
-                }) {
-                    Label("Backward", systemImage: "arrow.down")
-                }.padding()
-                Button(action: {
-                    sendMoveCommand(key: "rot", value: "1.0")
-                }) {
-                    Label("Left", systemImage: "arrow.left")
-                }.padding()
-                Button(action: {
-                    sendMoveCommand(key: "rot", value: "-1.0")
-                }) {
-                    Label("Right", systemImage: "arrow.right")
-                }.padding()
-                Button(action: {
-                    sendMoveCommand(key: "dir", value: "0.0")
-                    sendMoveCommand(key: "rot", value: "0.0")
-                }) {
-                    Label("Stop", systemImage: "exclamationmark.octagon.fill")
+                    Label("Emergency Stop", systemImage: "exclamationmark.octagon.fill")
                 }.padding()
                 
+                Text(verbatim: "Note Status:  \(GlobalStateVars.shared.noteStatus)")
+                Text(verbatim: "Robot Status:  \(GlobalStateVars.shared.robotState)")
+                Text(verbatim: "Is Ready to Shoot:  \(GlobalStateVars.shared.isReadyToShoot)")
             } else {
                 Label("Please connect to your robot", systemImage: "exclamationmark.triangle.fill")
                     .bold()

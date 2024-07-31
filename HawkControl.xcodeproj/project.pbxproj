@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,6 +63,20 @@
 		C4BDD63F753FAA94E4A1B9CC /* Pods-HawkControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HawkControl.debug.xcconfig"; path = "Target Support Files/Pods-HawkControl/Pods-HawkControl.debug.xcconfig"; sourceTree = "<group>"; };
 		E86BD38B9CD676042BE03101 /* Pods-HawkControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HawkControl.release.xcconfig"; path = "Target Support Files/Pods-HawkControl/Pods-HawkControl.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		BBBA362A2C56A76500C0C291 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CustomButton.swift,
+			);
+			target = BB1B50222C2F39E1000E889D /* HawkControl */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BBBA36252C56A64700C0C291 /* components */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (BBBA362A2C56A76500C0C291 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = components; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		BB1B50202C2F39E1000E889D /* Frameworks */ = {
@@ -132,6 +146,7 @@
 		BB1B50252C2F39E1000E889D /* HawkControl */ = {
 			isa = PBXGroup;
 			children = (
+				BBBA36252C56A64700C0C291 /* components */,
 				BB1DE55E2C32467700CC9509 /* Logger.swift */,
 				BB1DE55A2C31086400CC9509 /* WebSocketDelegateImpl.swift */,
 				BB1DE5582C3107D300CC9509 /* WebSocketManager.swift */,
@@ -519,7 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HawkControl/Preview Content\"";
-				DEVELOPMENT_TEAM = C2J6UW66LC;
+				DEVELOPMENT_TEAM = 2GW9354ST4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = HawkControl;
@@ -534,7 +549,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.HawkControl;
+				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.hawkcontroltest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -553,7 +568,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HawkControl/Preview Content\"";
-				DEVELOPMENT_TEAM = C2J6UW66LC;
+				DEVELOPMENT_TEAM = 2GW9354ST4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = HawkControl;
@@ -568,7 +583,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.HawkControl;
+				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.hawkcontroltest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

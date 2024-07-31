@@ -59,16 +59,35 @@ class WebSocketDelegateImpl: WebSocketDelegate, ObservableObject {
             }
         
         func handleReceivedText(_ text: String) {
-            if !text.contains("heartbeat") {return}
             if let data = text.data(using: .utf8) {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                    if let heartbeat = json?["heartbeat"] as? Bool {
-                        if heartbeat {
-                            print("Received heartbeat from server")
-                            // Optionally, you can add logic here to handle the heartbeat
-                            // For example, update a last received time to reset server watchdog
-//                            webSocketManager.sendData(key: "heartbeat", value: "true")
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        if let robotState = json["robotState"] as? String {
+                            // Handle robotState
+                            print("Robot State: \(robotState)")
+                            Logger.shared.log("Robot State: \(robotState)", level: .info)
+                            GlobalStateVars.shared.robotState = robotState
+                        }
+                        
+                        if let noteStatus = json["noteStatus"] as? String {
+                            // Handle noteStatus
+                            print("Note Status: \(noteStatus)")
+                            Logger.shared.log("Note Status: \(noteStatus)", level: .info)
+                            GlobalStateVars.shared.noteStatus = noteStatus
+                        }
+                        
+                        if let isReadyToShoot = json["isReadyToShoot"] as? String {
+                            Logger.shared.log("THE ROBOT IS NOW READY TO SHOOT...", level: .warning)
+                            GlobalStateVars.shared.isReadyToShoot = isReadyToShoot
+                        }
+                        
+                        if let heartbeat = json["heartbeat"] as? Bool {
+                            if heartbeat {
+                                print("Received heartbeat from server")
+                                // Optionally, you can add logic here to handle the heartbeat
+                                // For example, update a last received time to reset server watchdog
+                                // webSocketManager.sendData(key: "heartbeat", value: "true")
+                            }
                         }
                     }
                 } catch {
