@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import AVKit
 
 struct RobotPanelView: View {
     @ObservedObject var stateVars: GlobalStateVars = GlobalStateVars.shared
@@ -22,15 +23,25 @@ struct RobotPanelView: View {
                 HStack {
                     VStack {
                         Text("Live Camera Feed 1")
-                        Rectangle()
-                            .fill(Color.gray)
-                            .frame(height: 400)
+                        if let shooterStreamURL = URL(string: GlobalStateVars.shared.shooterStreamURL) {
+                            LimelightStreamView(url: shooterStreamURL)
+                                .frame(height: 400)
+                        } else {
+                            Text("Invalid URL for Shooter Stream")
+                                .frame(height: 400)
+                                .background(Color.gray)
+                        }
                     }
                     VStack {
                         Text("Live Camera Feed 2")
-                        Rectangle()
-                            .fill(Color.gray)
-                            .frame(height: 400)
+                        if let ampStreamURL = URL(string: GlobalStateVars.shared.ampStreamURL) {
+                            LimelightStreamView(url: ampStreamURL)
+                                .frame(height: 400)
+                        } else {
+                            Text("Invalid URL for Amp Stream")
+                                .frame(height: 400)
+                                .background(Color.gray)
+                        }
                     }
                 }
                 .padding()
@@ -43,21 +54,22 @@ struct RobotPanelView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             Text(verbatim: "Note Status:  \(GlobalStateVars.shared.noteStatus)")
+                            
                             Rectangle()
                                 .fill(GlobalStateVars.shared.noteStatus == "INTAKEN" ? (flash ? Color.green : Color.clear) : Color.red)
                                 .frame(width: 20, height: 20)
-                                .animation(Animation.easeInOut(duration: 0.25).repeatForever(autoreverses: true), value: flash)
+                                .animation(
+                                    Animation.easeInOut(duration: 0.25)
+                                        .repeatForever(autoreverses: true),
+                                    value: flash
+                                )
                                 .onAppear {
-                                    if GlobalStateVars.shared.noteStatus == "INTAKEN" {
-                                        flash = true
-                                    }
+                                    // Handle flashing when view first appears
+                                    handleFlashState()
                                 }
                                 .onChange(of: GlobalStateVars.shared.noteStatus) { newValue in
-                                    if newValue == "INTAKEN" {
-                                        flash = true
-                                    } else {
-                                        flash = false
-                                    }
+                                    // Handle flashing state changes
+                                    handleFlashState()
                                 }
                         }
                         
@@ -173,7 +185,32 @@ struct RobotPanelView: View {
         .padding()
     }
     
-    func sendMoveCommand(key: String, value: String) {
+    private func handleFlashState() {
+        if GlobalStateVars.shared.noteStatus == "INTAKEN" {
+            flash = true
+            scheduleLocalNotification()
+        } else {
+            flash = false
+        }
+    }
+    
+    private func scheduleLocalNotification() {
+            let content = UNMutableNotificationContent()
+            content.title = "Intake Status Alert"
+            content.body = "The intake note status has changed to INTAKEN!"
+            content.sound = UNNotificationSound.default
+
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("Error scheduling local notification: \(error.localizedDescription)")
+                }
+            }
+        }
+    
+    private func sendMoveCommand(key: String, value: String) {
         webSocketManager.sendData(key: key, value: value)
     }
 }

@@ -11,6 +11,10 @@ class GlobalStateVars: ObservableObject {
     @Published var noteStatus: String = ""
     @Published var isReadyToShoot: String = ""
     
+    // camera streams
+    @Published var shooterStreamURL: String = ""
+    @Published var ampStreamURL: String = ""
+    
     // settings
     @Published var useGyroForControl: Bool = false
 }

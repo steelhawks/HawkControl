@@ -68,7 +68,9 @@
 		BBBA362A2C56A76500C0C291 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				AVPlayerViewControllerRepresentable.swift,
 				CustomButton.swift,
+				LimelightStreamView.swift,
 			);
 			target = BB1B50222C2F39E1000E889D /* HawkControl */;
 		};

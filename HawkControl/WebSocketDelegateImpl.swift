@@ -81,6 +81,16 @@ class WebSocketDelegateImpl: WebSocketDelegate, ObservableObject {
                             GlobalStateVars.shared.isReadyToShoot = isReadyToShoot
                         }
                         
+                        if let shooterStreamURL = json["shooterStreamURL"] as? String {
+                            Logger.shared.log("Shooter stream URL \(shooterStreamURL)")
+                            GlobalStateVars.shared.shooterStreamURL = shooterStreamURL
+                        }
+                        
+                        if let ampStreamURL = json["ampStreamURL"] as? String {
+                            Logger.shared.log("AMP stream URL \(ampStreamURL)")
+                            GlobalStateVars.shared.ampStreamURL = ampStreamURL
+                        }
+                        
                         if let heartbeat = json["heartbeat"] as? Bool {
                             if heartbeat {
                                 print("Received heartbeat from server")
