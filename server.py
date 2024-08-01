@@ -29,7 +29,7 @@ WATCHDOG_TIMEOUT = 15
 UPDATE_INTERVAL = .15
 last_activity_time = time.time()
 
-ALLOWED_KEYS = ['fireShooter', 'ferryShot', 'podiumShot', 'subwooferShot']
+ALLOWED_KEYS = ['podiumShot', 'subwooferShot', 'noteToAmp', 'manualIntake', 'reverseIntake']
 
 note_status = status.getStringTopic("noteStatus").subscribe('NOTHING')
 robot_state = status.getStringTopic("robotState").subscribe('DISABLED')
