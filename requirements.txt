@@ -1,0 +1,4 @@
+pyntcore==2024.3.2.1
+robotpy-wpinet==2024.3.2.1
+robotpy-wpiutil==2024.3.2.1
+websockets==12.0
