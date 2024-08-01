@@ -36,10 +36,10 @@ struct RobotPanelView: View {
                         Text("AMP Feed")
                         if let ampStreamURL = URL(string: GlobalStateVars.shared.ampStreamURL) {
                             LimelightStreamView(url: ampStreamURL)
-                                .frame(height: 400)
+                                .frame(width: 400, height: 400)
                         } else {
                             Text("Invalid URL for Amp Stream")
-                                .frame(height: 400)
+                                .frame(width: 400, height: 400)
                                 .background(Color.gray)
                         }
                     }

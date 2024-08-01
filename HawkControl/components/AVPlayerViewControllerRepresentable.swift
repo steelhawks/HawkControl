@@ -18,14 +18,13 @@ struct AVPlayerLayerRepresentable: UIViewRepresentable {
         playerLayer.frame = view.bounds
         view.layer.addSublayer(playerLayer)
         
-        // Observe player item status to start playing when ready
+        // play when rdy
         if let currentItem = player.currentItem {
             currentItem.addObserver(context.coordinator, forKeyPath: "status", options: [.new, .initial], context: nil)
         } else {
             print("Player current item is nil")
         }
 
-        // Print debug info
         print("AVPlayerLayer created and added to view")
 
         return view
