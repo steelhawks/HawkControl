@@ -22,7 +22,7 @@ struct RobotPanelView: View {
                 // Top section for live camera feeds
                 HStack {
                     VStack {
-                        Text("Live Camera Feed 1")
+                        Text("Shooter Feed")
                         if let shooterStreamURL = URL(string: GlobalStateVars.shared.shooterStreamURL) {
                             LimelightStreamView(url: shooterStreamURL)
                                 .frame(height: 400)
@@ -33,7 +33,7 @@ struct RobotPanelView: View {
                         }
                     }
                     VStack {
-                        Text("Live Camera Feed 2")
+                        Text("AMP Feed")
                         if let ampStreamURL = URL(string: GlobalStateVars.shared.ampStreamURL) {
                             LimelightStreamView(url: ampStreamURL)
                                 .frame(height: 400)
@@ -64,11 +64,9 @@ struct RobotPanelView: View {
                                     value: flash
                                 )
                                 .onAppear {
-                                    // Handle flashing when view first appears
                                     handleFlashState()
                                 }
                                 .onChange(of: GlobalStateVars.shared.noteStatus) { newValue in
-                                    // Handle flashing state changes
                                     handleFlashState()
                                 }
                         }

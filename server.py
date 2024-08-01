@@ -67,7 +67,7 @@ async def send_to_client(websocket):
 
 async def handler(websocket, path):
     logging.info("Connected to WebSocket")
-    global last_activity_time  # use global to track last activity time
+    global last_activity_time
     try:
         async def send_heartbeat():
             while True:
@@ -112,7 +112,10 @@ async def watchdog():
         current_time = time.time()
         elapsed_time = current_time - last_activity_time
         if elapsed_time > WATCHDOG_TIMEOUT:
+            # put what to do when watchdog is triggered
             logging.warning(f"Watchdog timeout: No activity for {elapsed_time} seconds")
+            for key in ALLOWED_KEYS:
+                controls.putBoolean(key, False)
             
         await asyncio.sleep(1)
 
