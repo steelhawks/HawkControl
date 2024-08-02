@@ -130,6 +130,20 @@ struct RobotPanelView: View {
                             
                             VStack {
                                 CustomButton(
+                                    title: "Intake from Human",
+                                    onPress: {
+                                        sendMoveCommand(key: "intakeFromHuman", value: "true")
+                                    },
+                                    onRelease: {
+                                        sendMoveCommand(key: "intakeFromHuman", value: "false")
+                                    }
+                                )
+                                .frame(width: 200, height: 66.6666666667)
+                                .background(Color.white)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                
+                                CustomButton(
                                     title: "Manual Intake",
                                     onPress: {
                                         sendMoveCommand(key: "manualIntake", value: "true")
@@ -138,7 +152,7 @@ struct RobotPanelView: View {
                                         sendMoveCommand(key: "manualIntake", value: "false")
                                     }
                                 )
-                                .frame(width: 200, height: 100)
+                                .frame(width: 200, height: 66.6666666667)
                                 .background(Color.white)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
@@ -152,7 +166,7 @@ struct RobotPanelView: View {
                                         sendMoveCommand(key: "reverseIntake", value: "false")
                                     }
                                 )
-                                .frame(width: 200, height: 100)
+                                .frame(width: 200, height: 66.6666666667)
                                 .background(Color.white)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
