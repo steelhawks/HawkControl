@@ -70,6 +70,8 @@
 			membershipExceptions = (
 				AVPlayerViewControllerRepresentable.swift,
 				CustomButton.swift,
+				ElevatorLevelRepresentable.swift,
+				ElevatorLevelView.swift,
 				LimelightStreamView.swift,
 			);
 			target = BB1B50222C2F39E1000E889D /* HawkControl */;

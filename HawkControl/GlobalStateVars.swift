@@ -10,6 +10,7 @@ class GlobalStateVars: ObservableObject {
     @Published var robotState: String = ""
     @Published var noteStatus: String = ""
     @Published var isReadyToShoot: String = ""
+    @Published var elevatorLevel: String = ""
     
     // camera streams
     @Published var shooterStreamURL: String = ""

@@ -16,6 +16,11 @@ struct RobotPanelView: View {
     @State private var flash = false
     @State private var timer: Timer?
     
+//    @State private var elevatorLevel: CGFloat = handleElevatorLevel()
+    // home 0.1
+    // amp 0.5
+    // climb 0.9
+    
     var body: some View {
         VStack {
             if stateVars.connectedToRobot {
@@ -25,10 +30,10 @@ struct RobotPanelView: View {
                         Text("Shooter Feed")
                         if let shooterStreamURL = URL(string: GlobalStateVars.shared.shooterStreamURL) {
                             LimelightStreamView(url: shooterStreamURL)
-                                .frame(height: 400)
+                                .frame(width: 400, height: 400)
                         } else {
                             Text("Invalid URL for Shooter Stream")
-                                .frame(height: 400)
+                                .frame(width: 400, height: 400)
                                 .background(Color.gray)
                         }
                     }
@@ -43,6 +48,33 @@ struct RobotPanelView: View {
                                 .background(Color.gray)
                         }
                     }
+                    
+                    // VStack for Elevator Level Indicator with Labels
+                    VStack(alignment: .center) {
+                        Text("Elevator Location")
+                            .font(.headline)
+                            .padding(.bottom, 10)
+
+                        HStack {
+                            VStack(alignment: .trailing) {
+                                Spacer()
+                                Text("Climb")
+                                    .padding(.bottom, 40)
+                                Spacer()
+                                Text("AMP")
+                                    .padding(.bottom, 40)
+                                Spacer()
+                                Text("Home")
+                                Spacer()
+                            }
+                            .padding(.trailing, 5)
+
+                            ElevatorLevelRepresentable(level: .constant(handleElevatorLevel()))
+                                .frame(width: 100, height: 300)
+                                .background(Color.white)
+                                .cornerRadius(10)
+                        }
+                    }.padding(.leading, 50)
                 }
                 .padding()
                 
@@ -114,19 +146,35 @@ struct RobotPanelView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                             
-                            CustomButton(
-                                title: "Note to Amp",
-                                onPress: {
-                                    sendMoveCommand(key: "noteToAmp", value: "true")
-                                },
-                                onRelease: {
-                                    sendMoveCommand(key: "noteToAmp", value: "false")
-                                }
-                            )
-                            .frame(width: 200, height: 200)
-                            .background(Color.white)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
+                            VStack {
+                                CustomButton(
+                                    title: "Elevator Home",
+                                    onPress: {
+                                        sendMoveCommand(key: "elevatorHome", value: "true")
+                                    },
+                                    onRelease: {
+                                        sendMoveCommand(key: "elevatorHome", value: "false")
+                                    }
+                                )
+                                .frame(width: 200, height: 100)
+                                .background(Color.white)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                
+                                CustomButton(
+                                    title: "Note to Amp",
+                                    onPress: {
+                                        sendMoveCommand(key: "noteToAmp", value: "true")
+                                    },
+                                    onRelease: {
+                                        sendMoveCommand(key: "noteToAmp", value: "false")
+                                    }
+                                )
+                                .frame(width: 200, height: 100)
+                                .background(Color.white)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                            }
                             
                             VStack {
                                 CustomButton(
@@ -181,7 +229,7 @@ struct RobotPanelView: View {
                             sendMoveCommand(key: "noteToAmp", value: "false")
                             sendMoveCommand(key: "manualIntake", value: "false")
                             sendMoveCommand(key: "reverseToIntake", value: "false")
-                            
+                            sendMoveCommand(key: "elevatorHome", value: "false")
                         }) {
                             Label("Emergency Stop", systemImage: "exclamationmark.octagon.fill")
                         }
@@ -205,6 +253,20 @@ struct RobotPanelView: View {
             flash = false
         }
     }
+    
+    private func handleElevatorLevel() -> CGFloat {
+        switch GlobalStateVars.shared.elevatorLevel {
+            case "Home":
+                return 0.1
+            case "AMP":
+                return 0.5
+            case "Climb":
+                return 0.9
+            default:
+                return 0.1
+        }
+    }
+
     
     private func scheduleLocalNotification() {
             let content = UNMutableNotificationContent()

@@ -91,6 +91,11 @@ class WebSocketDelegateImpl: WebSocketDelegate, ObservableObject {
                             GlobalStateVars.shared.ampStreamURL = ampStreamURL
                         }
                         
+                        if let elevatorLevel = json["elevatorLevel"] as? String {
+                            Logger.shared.log("Elevator Level \(elevatorLevel)")
+                            GlobalStateVars.shared.elevatorLevel = elevatorLevel
+                        }
+                        
                         if let heartbeat = json["heartbeat"] as? Bool {
                             if heartbeat {
                                 print("Received heartbeat from server")

@@ -29,11 +29,12 @@ WATCHDOG_TIMEOUT = 15
 UPDATE_INTERVAL = .15
 last_activity_time = time.time()
 
-ALLOWED_KEYS = ['podiumShot', 'subwooferShot', 'noteToAmp', 'intakeFromHuman', 'manualIntake', 'reverseIntake']
+ALLOWED_KEYS = ['podiumShot', 'subwooferShot', 'noteToAmp', 'intakeFromHuman', 'manualIntake', 'reverseIntake', 'elevatorHome']
 
 note_status = status.getStringTopic("noteStatus").subscribe('NOTHING')
 robot_state = status.getStringTopic("robotState").subscribe('DISABLED')
 is_ready_to_shoot = status.getBooleanTopic("isReadyToShoot").subscribe(False)
+elevator_level = status.getStringTopic("elevatorLevel").subscribe('Home')
 
 arm_stream = inst.getTable("SmartDashboard").getStringTopic("limelight-arm_Stream").subscribe("")
 shooter_stream = inst.getTable("SmartDashboard").getStringTopic("limelight-shooter_Stream").subscribe("")
@@ -59,7 +60,8 @@ async def send_to_client(websocket):
             "robotState": robot_state.get(),
             "isReadyToShoot": "Yes" if is_ready_to_shoot.get() == True else "No",
             "ampStreamURL": arm_stream.get(),
-            "shooterStreamURL": shooter_stream.get()
+            "shooterStreamURL": shooter_stream.get(),
+            "elevatorLevel": elevator_level.get()
         }
         
         await websocket.send(json.dumps(update_data))
