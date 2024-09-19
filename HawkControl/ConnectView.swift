@@ -11,7 +11,7 @@ struct ConnectView: View {
     @ObservedObject var stateVars: GlobalStateVars = GlobalStateVars.shared
     let webSocketManager = WebSocketManager.shared
     @State private var ip: String = "192.168.1.175" // dev ip
-    @State private var port: String = "8766" // WebSocket port
+    @State private var port: String = "2601" // WebSocket port
 
     @State private var showingAlert = false
     @State private var includeSecondary = false

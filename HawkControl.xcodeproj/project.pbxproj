@@ -22,6 +22,7 @@
 		BB1DE5612C32482000CC9509 /* LoggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1DE5602C32482000CC9509 /* LoggingView.swift */; };
 		BBC10E8B2C2F5F8C0099A208 /* RobotPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC10E8A2C2F5F8C0099A208 /* RobotPanelView.swift */; };
 		BBC10E8D2C30B4B90099A208 /* GlobalStateVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC10E8C2C30B4B90099A208 /* GlobalStateVars.swift */; };
+		BBD480012C87D5B60072B1F6 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD480002C87D5B60072B1F6 /* FieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		BB1DE5602C32482000CC9509 /* LoggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingView.swift; sourceTree = "<group>"; };
 		BBC10E8A2C2F5F8C0099A208 /* RobotPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotPanelView.swift; sourceTree = "<group>"; };
 		BBC10E8C2C30B4B90099A208 /* GlobalStateVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStateVars.swift; sourceTree = "<group>"; };
+		BBD480002C87D5B60072B1F6 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
 		C4BDD63F753FAA94E4A1B9CC /* Pods-HawkControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HawkControl.debug.xcconfig"; path = "Target Support Files/Pods-HawkControl/Pods-HawkControl.debug.xcconfig"; sourceTree = "<group>"; };
 		E86BD38B9CD676042BE03101 /* Pods-HawkControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HawkControl.release.xcconfig"; path = "Target Support Files/Pods-HawkControl/Pods-HawkControl.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,10 +71,13 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				AVPlayerViewControllerRepresentable.swift,
+				CanvasView.swift,
+				CrescendoFieldView.swift,
 				CustomButton.swift,
 				ElevatorLevelRepresentable.swift,
 				ElevatorLevelView.swift,
 				LimelightStreamView.swift,
+				ViewController.swift,
 			);
 			target = BB1B50222C2F39E1000E889D /* HawkControl */;
 		};
@@ -154,6 +159,7 @@
 				BB1DE55E2C32467700CC9509 /* Logger.swift */,
 				BB1DE55A2C31086400CC9509 /* WebSocketDelegateImpl.swift */,
 				BB1DE5582C3107D300CC9509 /* WebSocketManager.swift */,
+				BBD480002C87D5B60072B1F6 /* FieldView.swift */,
 				BB1B50262C2F39E1000E889D /* HawkControlApp.swift */,
 				BB1B50282C2F39E1000E889D /* ConnectView.swift */,
 				BB1B502A2C2F39E2000E889D /* Assets.xcassets */,
@@ -369,6 +375,7 @@
 				BBC10E8B2C2F5F8C0099A208 /* RobotPanelView.swift in Sources */,
 				BB1B50292C2F39E1000E889D /* ConnectView.swift in Sources */,
 				BB1DE5592C3107DE00CC9509 /* WebSocketManager.swift in Sources */,
+				BBD480012C87D5B60072B1F6 /* FieldView.swift in Sources */,
 				BBC10E8D2C30B4B90099A208 /* GlobalStateVars.swift in Sources */,
 				BB1DE5612C32482000CC9509 /* LoggingView.swift in Sources */,
 				BB1DE55B2C31086F00CC9509 /* WebSocketDelegateImpl.swift in Sources */,
@@ -538,7 +545,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HawkControl/Preview Content\"";
-				DEVELOPMENT_TEAM = 2GW9354ST4;
+				DEVELOPMENT_TEAM = QSXRGJG5V9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = HawkControl;
@@ -555,7 +562,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.hawkcontroltest;
+				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.hawkcontrol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -574,7 +581,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HawkControl/Preview Content\"";
-				DEVELOPMENT_TEAM = 2GW9354ST4;
+				DEVELOPMENT_TEAM = QSXRGJG5V9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = HawkControl;
@@ -591,7 +598,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.hawkcontroltest;
+				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.hawkcontrol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -611,7 +618,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.steelhawks.HawkControlTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.hawkcontrol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -630,7 +637,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.steelhawks.HawkControlTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.hawkcontrol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -647,7 +654,7 @@
 				DEVELOPMENT_TEAM = QSXRGJG5V9;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.steelhawks.HawkControlUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.hawkcontrol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -664,7 +671,7 @@
 				DEVELOPMENT_TEAM = QSXRGJG5V9;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.steelhawks.HawkControlUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.steelhawks.hawkcontrol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

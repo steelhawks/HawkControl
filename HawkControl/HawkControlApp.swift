@@ -22,16 +22,21 @@ struct HawkControlApp: App {
                         Text("Control")
                     }
                     .tag(2)
+                FieldView()
+                    .tabItem {
+                        Text("Field")
+                    }
+                    .tag(3)
                 LoggingView()
                     .tabItem {
                         Text("Logs")
                     }
-                    .tag(3)
+                    .tag(4)
                 SettingsView()
                     .tabItem {
                         Text("Settings")
                     }
-                    .tag(4)
+                    .tag(5)
                 }
             }
         }

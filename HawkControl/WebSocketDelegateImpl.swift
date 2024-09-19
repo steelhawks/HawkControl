@@ -95,6 +95,9 @@ class WebSocketDelegateImpl: WebSocketDelegate, ObservableObject {
                             Logger.shared.log("Elevator Level \(elevatorLevel)")
                             GlobalStateVars.shared.elevatorLevel = elevatorLevel
                         }
+                        if let alliance = json["alliance"] as? String {
+                            GlobalStateVars.shared.alliance = alliance
+                        }
                         
                         if let heartbeat = json["heartbeat"] as? Bool {
                             if heartbeat {
